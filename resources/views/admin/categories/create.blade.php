@@ -19,6 +19,7 @@
 		{!! Form::submit('Criar categoria', ['class'=>'btn btn-primary']) !!}
 	</div>
 
+
 	{!! Form::close() !!}
 
 

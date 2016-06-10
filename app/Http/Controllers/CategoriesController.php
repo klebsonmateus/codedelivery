@@ -5,6 +5,7 @@ namespace CodeDelivery\Http\Controllers;
 
 use CodeDelivery\Repositories\CategoryRepository;
 use CodeDelivery\Http\Requests;
+use Illuminate\Http\Request;
 
 
 class CategoriesController extends Controller
@@ -22,8 +23,8 @@ class CategoriesController extends Controller
     	return view('admin.categories.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-    	
+    	dd($request->all());
     }
 }
