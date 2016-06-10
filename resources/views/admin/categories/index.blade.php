@@ -29,6 +29,8 @@
 			</tbody>
 		</table>
 
+		{!! $categories->render() !!}
+
 
 	</div>
 
