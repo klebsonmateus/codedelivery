@@ -10,10 +10,17 @@ use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
-    public function index(CategoryRepository $repository)
+    private $repository;
+
+    public function __construct(CategoryRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    public function index()
     {
 
-    	$categories = $repository->paginate(5);
+    	$categories = $this->repository->paginate();
 
     	return view('admin.categories.index', compact('categories'));
     }
@@ -24,7 +31,10 @@ class CategoriesController extends Controller
     }
 
     public function store(Request $request)
-    {
-    	dd($request->all());
+    {   
+        $data = $request->all();
+        $this->repository->create($data);
+
+        return redirect()->route('admin.categories.index');
     }
 }
