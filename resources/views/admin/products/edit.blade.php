@@ -16,7 +16,7 @@
 	@include('admin.products._form')
 
 	<div class="form-group">
-		{!! Form::submit('Salvar produto', ['class'=>'btn btn-primary']) !!}
+		{!! Form::submit('Salvar', ['class'=>'btn btn-primary']) !!}
 	</div>
 
 
