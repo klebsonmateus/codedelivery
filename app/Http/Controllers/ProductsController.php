@@ -7,6 +7,7 @@ use CodeDelivery\Repositories\ProductRepository;
 use CodeDelivery\Repositories\CategoryRepository;
 use CodeDelivery\Http\Requests;
 use CodeDelivery\Http\Requests\AdminCategoryRequest;
+use CodeDelivery\Http\Requests\AdminProductRequest;
 
 
 class ProductsController extends Controller
@@ -44,12 +45,12 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product = $this->repository->find($id);
-        $categories = $this->categoryRepository->lists();
+        $categories = $this->categoryRepository->lists("name");
 
         return view('admin.products.edit',compact('product','categories'));
     }
 
-    public function update(AdminCategoryRequest $request, $id)
+    public function update(AdminProductRequest $request, $id)
     {
         $data = $request->all();
         $this->repository->update($data, $id);
