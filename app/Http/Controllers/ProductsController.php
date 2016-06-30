@@ -31,10 +31,11 @@ class ProductsController extends Controller
 
     public function create()
     {
-    	return view('admin.products.create');
+        $categories = $this->categoryRepository->lists("name", "id");
+    	return view('admin.products.create', compact('categories'));
     }
 
-    public function store(AdminCategoryRequest $request)
+    public function store(AdminProductRequest $request)
     {   
         $data = $request->all();
         $this->repository->create($data);
